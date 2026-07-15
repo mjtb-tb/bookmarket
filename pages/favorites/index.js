@@ -9,7 +9,7 @@ import Head from "next/head";
 export async function getServerSideProps(context){
     const {bookmarketToken} = context.req.cookies
     console.log('boookmarkettoken===>',bookmarketToken)
-    connectionDb()
+    await connectionDb()
     if (!bookmarketToken) {
         return {
             redirect: {
