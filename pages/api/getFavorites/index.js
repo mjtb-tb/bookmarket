@@ -5,7 +5,7 @@ import { verifyToken } from "@/functions/generateToken";
 
 
 export default async function getFavorites(req,res){
-    connectionDb()
+    await connectionDb()
 
     // if (req.method!='POST'){
     //     return false;

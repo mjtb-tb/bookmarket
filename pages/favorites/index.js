@@ -1,66 +1,90 @@
 import connectionDb from "@/functions/conecttionToDb";
 import usermodel from "@/models/user";
 import { verifyToken } from "@/functions/generateToken";
-import Wishlist from "@/components/WishList/WishList";
 import BooksContainer from "@/components/BooksContainer/BooksContainer";
 import Head from "next/head";
 
+export async function getServerSideProps(context) {
+    const { bookmarketToken } = context.req.cookies;
+    console.log('bookmarketToken ===>', bookmarketToken);
 
-export async function getServerSideProps(context){
-    const {bookmarketToken} = context.req.cookies
-    console.log('boookmarkettoken===>',bookmarketToken)
-    await connectionDb()
+    await connectionDb();
+
+    // ۱. اگر توکن کلاً وجود نداشت، ریدایرکت به لاگین
     if (!bookmarketToken) {
         return {
             redirect: {
                 destination: "/logInForm",
+                permanent: false,
             },
         };
     }
 
-    let tokenPayLoad = verifyToken(bookmarketToken)
-    console.log('toooooken==>',tokenPayLoad)
-    let {username} = tokenPayLoad
-    console.log('=======>',username)
+    try {
+        // ۲. تایید توکن را به داخل try می‌آوریم تا در صورت خراب بودن توکن، سرور کرش نکند
+        const tokenPayLoad = verifyToken(bookmarketToken);
+        
+        if (!tokenPayLoad || !tokenPayLoad.username) {
+            throw new Error("توکن نامعتبر است");
+        }
 
-    try{
+        const { username } = tokenPayLoad;
+        console.log('Username =======>', username);
+
         const userFavorites = await usermodel
-                .findOne({ username })
-                .select("wishlist -_id") // فقط ویزلیست را بیاور و آی‌دی خود کاربر را حذف کن
-                .populate("wishlist")    // اطلاعات کامل کتاب‌های داخل ویزلیست را لود کن
-                .lean();    
-            // .populate("wishlist","-count")    //  اطلاعات کامل کتاب‌های داخل ویزلیست را لود کن البتهای جز چیزی که از آن منها شده
+            .findOne({ username })
+            .select("wishlist -_id")
+            .populate("wishlist")
+            .lean();
 
-            return{
-                props:{
-                    data:JSON.parse(JSON.stringify(userFavorites)),
-                    error:false,
-                    message:"everything is ok"
-                }
-            }      
-    }catch{
-            return{
-                props:{
-                    data:[],
-                    error:true,
-                    message:" خطا در دیافت اطلاعات "
-                }
-            } 
+        // ۳. سوپاپ اطمینان: اگر کاربر پیدا نشد یا ویش‌لیست نداشت
+        const wishlistData = userFavorites?.wishlist || [];
+
+        return {
+            props: {
+                data: JSON.parse(JSON.stringify(wishlistData)), // فقط آرایه کتاب‌ها را می‌فرستیم تا کار فرانت راحت شود
+                error: false,
+                message: "اطلاعات با موفقیت دریافت شد"
+            }
+        };
+
+    } catch (err) {
+        console.error("Error in Favorites getServerSideProps:", err.message);
+        
+        // اگر مشکلی در دیتابیس یا توکن بود، به جای فرستادن دیتای خراب، کاربر را به لاگین هدایت می‌کنیم
+        return {
+            redirect: {
+                destination: "/logInForm",
+                permanent: false,
+            },
+        };
     }
-
 }
 
-export default function favorites({data,error,message}){
+export default function Favorites({ data, error, message }) {
+    console.log('Favorites Data ==>', data);
 
-    console.log('data==>',data)
-    console.log(error)
-    console.log(message)
+    // ۴. اگر دیتایی وجود نداشت یا خطا رخ داده بود، پیام مناسب نشان داده شود و کرش نکند
+    if (error || !data) {
+        return (
+            <div style={{ textAlign: 'center', padding: '50px', color: '#fff' }}>
+                {message || "خطایی در بارگذاری لیست علاقه‌مندی‌ها رخ داده است."}
+            </div>
+        );
+    }
 
-    return(
+    return (
         <>
-            <Head><title> مورد علاقه ها </title></Head>
-            <BooksContainer data={data.wishlist} error={error} message={message} title={' کتاب های مورد علاقه شما '}></BooksContainer>
-            {/* <Wishlist data={data} error={error} message={message} ></Wishlist> */}
+            <Head>
+                <title>مورد علاقه‌ها</title>
+            </Head>
+            {/* ۵. حالا data خودش مستقیماً آرایه کتاب‌هاست و نیازی به data.wishlist نیست */}
+            <BooksContainer 
+                data={data} 
+                error={error} 
+                message={message} 
+                title='کتاب‌های مورد علاقه شما' 
+            />
         </>
-    )
+    );
 }

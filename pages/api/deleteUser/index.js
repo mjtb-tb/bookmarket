@@ -2,7 +2,7 @@ import usermodel from "@/models/user";
 import connectionDb from "@/functions/conecttionToDb";
 
 export default async function deleteUser(req,res){
-    connectionDb()
+    await connectionDb()
     const {userId} = req.body
     
     try{

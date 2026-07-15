@@ -11,7 +11,7 @@ const generateToken = (data) => {
 
 const verifyToken = (token) => {
   try {
-    const validationResult =  verify(token, process.env.privateKey);
+    const validationResult =  verify(token, process.env.privatekey);
     return validationResult;
   } catch (err) {
     console.log("Verify Token Error =>", err);

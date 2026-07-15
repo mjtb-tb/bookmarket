@@ -4,7 +4,7 @@ import connectionDb from "@/functions/conecttionToDb";
 import { verifyToken } from "@/functions/generateToken";
 
 export default async function addToFavorites(req,res){
-    connectionDb()
+    await connectionDb()
 
     if (req.method!='POST'){
         return false;
