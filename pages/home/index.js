@@ -19,7 +19,8 @@ export async function getStaticProps(){
             error:false,
             message:" everything is ok",
             title:' همه کتاب ها '
-        }
+        },
+        revalidate:10
     }
 
 
@@ -30,7 +31,8 @@ export async function getStaticProps(){
             error:true,
             message:" there is a problem",
             title:' کتابی دریافت نشد'
-        }
+        },
+        revalidate:10
     }
   }
     

@@ -13,7 +13,8 @@ export async function getStaticProps(contex){
                 book:JSON.parse(JSON.stringify(book)),
                 error:false,
                 message:'ok'
-            }
+            },
+            revalidate:60
         }
     }catch{
         return{
@@ -21,7 +22,8 @@ export async function getStaticProps(contex){
                 book:[],
                 error:true,
                 message:' مشکلی وجود دارد '
-            }
+            },
+            revalidate:60
         }
     }
     

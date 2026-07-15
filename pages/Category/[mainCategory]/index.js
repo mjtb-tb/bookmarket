@@ -13,7 +13,8 @@ export async function getStaticProps(context){
                 error:false,
                 message:' ok ',
                 title:context.params.mainCategory
-            }
+            },
+            revalidate:60
         }
     }catch{
         return{
@@ -22,7 +23,8 @@ export async function getStaticProps(context){
                 error:true,
                 message:' ok ',
                 title:context.params.mainCategory
-            }
+            },
+            revalidate:60
         }  
     }
     
