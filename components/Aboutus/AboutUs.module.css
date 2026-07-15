@@ -1,0 +1,76 @@
+.aboutContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  direction: rtl;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.aboutCard {
+  background: rgba(24, 26, 32, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 750px;
+  width: 100%;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.aboutHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 25px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 15px;
+}
+
+.aboutIcon {
+  font-size: 26px;
+  color: #00f2fe;
+  filter: drop-shadow(0 0 8px rgba(0, 242, 254, 0.3));
+}
+
+.aboutTitle {
+  font-size: 22px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+}
+
+.highlight {
+  color: #00f2fe;
+}
+
+.aboutContent {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.aboutContent p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #a4a9b6;
+  margin: 0;
+  text-align: justify;
+}
+
+/* بهینه‌سازی ظاهر برای موبایل */
+@media (max-width: 600px) {
+  .aboutCard {
+    padding: 25px 20px;
+  }
+  
+  .aboutTitle {
+    font-size: 19px;
+  }
+  
+  .aboutContent p {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+}

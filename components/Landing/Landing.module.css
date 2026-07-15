@@ -1,0 +1,121 @@
+.landing{
+    background-color: rgb(44, 41, 41);
+}
+
+.landing_nav{
+    position: absolute;
+    top: 110px;
+    /* background-color: rgba(0, 255, 255, 0.315); */
+    width: 100%;
+    padding: 0 2rem;
+}
+
+.landing_nav_content{
+    backdrop-filter: blur(5px);
+    box-shadow: 0px 0px 1 0.5 white;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0.5rem;
+}
+
+.landing_nav_content_left{}
+
+.landing_nav_content_left_aboutUs{
+    border: 1px solid white;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    color: white;
+    font-size: 0.8rem;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.100);
+}
+.landing_nav_content_left_aboutUs:hover{
+    background-color: rgba(255, 255, 255, 0.200);
+}
+
+.landing_nav_content_right{
+    display: flex;
+    gap: 0.5rem;
+}
+
+.landing_nav_content_right_signup{
+    border: 1px solid white;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    color: white;
+    font-size: 0.8rem;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.100);
+}
+.landing_nav_content_right_signup:hover{
+    background-color: rgba(255, 255, 255, 0.200);
+}
+
+.landing_nav_content_right_signin{
+    border: 1px solid white;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    color: white;
+    font-size: 0.8rem;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.100);
+}
+.landing_nav_content_right_signin:hover{
+    background-color: rgba(255, 255, 255, 0.200);
+}
+
+.landing_nav_content_right_userPanel,.landing_nav_content_right_adminDashboard{
+    border: 1px solid white;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    color: white;
+    font-size: 0.8rem;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.100);
+}
+.landing_nav_content_right_userPanel:hover{
+    background-color: rgba(255, 255, 255, 0.200);
+}
+.landing_nav_content_right_adminDashboard:hover{
+    background-color: rgba(255, 255, 255, 0.200);
+}
+
+.landing_webname{
+    position: absolute;
+    top: 250px;
+    width: 100%;
+}
+
+.landing_webname_content{
+    margin: 0 2rem;
+    padding: 1rem 1rem;
+    border-radius: 0.5rem;
+    backdrop-filter: blur(3px);
+    /* background-color: blue; */
+    /* border: 1px solid white; */
+}
+
+.landing_webname_title{
+    display: flex;
+    justify-content: center;
+}
+
+.landing_webname_title_text{
+    font-size: 2.3rem;
+    color: #ECEFF1;
+    text-shadow: 2px 2px 1  black;
+}
+
+.landing_webname_describtion{
+    direction: rtl;
+    text-align: center;
+}
+
+.landing_webname_describtion_text{
+    font-size: 1.3rem;
+    color: #00f2fe;
+    text-shadow: 1px 2px 1  black;
+    
+}

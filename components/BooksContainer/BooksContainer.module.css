@@ -1,0 +1,135 @@
+.BooksContainer{
+    background-color: #212121;
+}
+
+.BooksContainer_content{
+    padding: 1rem;
+}
+
+.BooksContainer_title{
+    direction: rtl;
+    position: relative;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+}
+.BooksContainer_title::before {
+    display: inline-block;
+    position: absolute;
+    content: '';
+    background-color: #00ff66; /* 👈 سبز نئونی روشن */
+    width: 5px;
+    height: 25px;
+    bottom: 3px;
+    right: -10px;
+    border-radius: 0.5rem;
+    
+    /* 👈 لایه‌های سایه برای ایجاد افکت پخش نور (Neon Glow) */
+    box-shadow: 
+        0 0 5px #00ff66,     /* سایه داخلی نزدیک و تیز */
+        0 0 15px #00ff66,    /* پخش نور متوسط */
+        0 0 30px #00ff66,    /* پخش نور عمیق در پس‌زمینه */
+        0 0 40px rgba(0, 255, 102, 0.5); /* هاله محو نهایی */
+}
+
+.BooksContainer_title_text{
+    color: aliceblue;
+    font-size: 1.5rem;
+}
+
+.BooksContainer_books{
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* کانتینر دکمه‌های صفحه‌بندی در حالت دارک */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 50px;
+    padding: 15px;
+    background-color: #0d0e12; /* پس‌زمینه بسیار تیره نئونی */
+    border-radius: 12px;
+    border: 1px solid #1f222f;
+    direction: rtl;
+}
+
+/* استایل دکمه‌های قبلی و بعدی */
+.pageBtn {
+    padding: 8px 18px;
+    border: 1px solid #00f2fe; /* بوردر سایان نئونی */
+    background-color: rgba(0, 242, 254, 0.05);
+    color: #00f2fe;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.pageBtn:disabled {
+    opacity: 0.2;
+    border-color: #374151;
+    color: #374151;
+    background: transparent;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* هاور دکمه‌های قبلی و بعدی با افکت درخشش نئون */
+.pageBtn:not(:disabled):hover {
+    background-color: #00f2fe;
+    color: #0d0e12;
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.6), 
+                0 0 30px rgba(0, 242, 254, 0.2);
+}
+
+/* استایل شماره صفحات */
+.pageNumber {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #9d4edd; /* بوردر بنفش نئونی دکمه‌های عادی */
+    background-color: rgba(157, 78, 221, 0.05);
+    color: #c8b6ff;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+/* هاور شماره صفحات عادی */
+.pageNumber:hover {
+    background-color: rgba(157, 78, 221, 0.2);
+    color: #ffffff;
+    box-shadow: 0 0 10px rgba(157, 78, 221, 0.4);
+}
+
+/* 🌟 استایل صفحه فعال (درخشش شدید نئونی ارغوانی/بنفش) */
+.activePage {
+    background-color: #9d4edd;
+    color: #ffffff;
+    border-color: #b5179e;
+    font-size: 16px;
+    /* جادوی نئون اینجاست: لایه‌های مختلف سایه متمرکز و پخش‌شده */
+    box-shadow: 0 0 8px #9d4edd, 
+                0 0 20px #9d4edd, 
+                0 0 35px rgba(157, 78, 221, 0.5);
+    text-shadow: 0 0 5px #ffffff;
+}
+
+/* استایل متن سه‌نقطه نئونی */
+.dots {
+    color: rgba(157, 78, 221, 0.4); /* بنفش بسیار ملایم */
+    font-size: 18px;
+    font-weight: bold;
+    padding: 0 5px;
+    user-select: none; /* غیرقابل انتخاب شدن متن با موس */
+    text-shadow: 0 0 5px rgba(157, 78, 221, 0.2);
+}

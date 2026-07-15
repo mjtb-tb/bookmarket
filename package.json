@@ -1,4 +1,5 @@
 {
+  "homepage": "https://wallworld.onrender.com/home",
   "name": "bookmarket",
   "version": "0.1.0",
   "private": true,
@@ -8,8 +9,17 @@
     "start": "next start"
   },
   "dependencies": {
+    "@vercel/blob": "^2.6.1",
+    "bcryptjs": "^3.0.3",
+    "cookie": "^2.0.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongodb": "^7.5.0",
+    "mongoose": "^9.7.3",
     "next": "16.2.10",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "react-icons": "^5.7.0",
+    "sonner": "^2.0.7",
+    "three": "^0.185.1"
   }
 }

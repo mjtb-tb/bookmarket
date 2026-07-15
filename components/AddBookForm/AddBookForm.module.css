@@ -1,0 +1,164 @@
+.uploadContainer {
+  direction: rtl;
+  font-family: system-ui, -apple-system, sans-serif;
+  max-width: 550px;
+  margin: 40px auto;
+  padding: 30px;
+  background: rgba(20, 22, 28, 0.65);
+  border-radius: 16px;
+  border: 1px solid rgba(0, 242, 254, 0.1);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+}
+
+.uploadHeader {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.uploadHeaderIcon {
+  color: #00f2fe;
+  font-size: 50px;
+  filter: drop-shadow(0 0 8px rgba(0, 242, 254, 0.4));
+}
+
+.uploadHeaderTitle {
+  margin: 10px 0 5px 0;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.uploadHeaderSubtitle {
+  color: #707584;
+  font-size: 13px;
+  margin: 0;
+}
+
+.uploadForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.uploadInputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.uploadLabel {
+  font-size: 14px;
+  color: #a4a9b6;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.textInput {
+  background: #14161c;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 12px;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.textInput:focus {
+  border-color: #00f2fe;
+}
+
+.uploadFileInput {
+  background: #14161c;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 10px;
+  border-radius: 8px;
+  color: #a4a9b6;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.uploadSubmitBtn {
+  background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+  color: #000000;
+  padding: 14px;
+  border-radius: 10px;
+  border: none;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 242, 254, 0.2);
+  margin-top: 10px;
+}
+
+.uploadSubmitBtn:not(.disabled):hover {
+  box-shadow: 0 0 20px rgba(0, 242, 254, 0.5);
+}
+
+.disabled {
+  background: #202228;
+  color: #707584;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.uploadSpinner {
+  animation: upload-spin 1s linear infinite;
+}
+
+.uploadResultContainer {
+  margin-top: 30px;
+  padding: 20px;
+  background: #14161c;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 242, 254, 0.2);
+}
+
+.uploadSuccessMessage {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #00f2fe;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+@keyframes upload-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.selectInput {
+  background: #14161c;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 12px;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 13px;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+  appearance: none; /* حذف دکمه پیش‌فرض سیستم‌عامل */
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23a4a9b6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>");
+  background-repeat: no-repeat;
+  background-position: left 12px center;
+  background-size: 16px;
+  padding-left: 40px; /* فضای خالی برای آیکون فلش سمت چپ */
+}
+
+.selectInput:focus {
+  border-color: #00f2fe;
+}
+
+/* استایل آپشن‌ها داخل سیستم‌عامل */
+.selectInput option {
+  background: #14161c;
+  color: #ffffff;
+}

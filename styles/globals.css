@@ -1,3 +1,15 @@
+@font-face {
+  font-family: 'B Nazanin';
+  src: url('/fonts/nazanin.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* اعمال فونت روی کل اجزای سایت بدون استثنا */
+html, body, *, button, input {
+  font-family: 'B Nazanin', Tahoma, sans-serif !important;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -18,7 +30,8 @@ body {
 
 body {
   color: var(--foreground);
-  background: var(--background);
+  /* background: var(--background); */
+  background-color: #0a0a0a;
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
