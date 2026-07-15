@@ -103,9 +103,9 @@ export default function BookBox({ id, bookname, author, category, favorite ,cove
   };
 
   return (
-<Link href={`./${id}`}>
     <div className={styles.bookCard}>
       {/* بخش بالایی: تصویر کتاب با روبان دسته‌بندی */}
+      <Link href={`./${id}`}>
       <div className={styles.bookTop}>
         <div className={styles.imgContainer}>
           <Image
@@ -123,7 +123,7 @@ export default function BookBox({ id, bookname, author, category, favorite ,cove
           {category}
         </span>
       </div>
-
+      </Link>
       {/* بخش پایینی: جزئیات و دکمه علاقه‌مندی */}
       <div className={styles.bookBottom}>
         <div className={styles.titleWrapper}>
@@ -136,6 +136,7 @@ export default function BookBox({ id, bookname, author, category, favorite ,cove
           <span className={styles.authorName}>{author}</span>
         </div>
 
+        
         {/* دکمه افزودن به علاقه‌مندی‌ها - کاملاً زنده بر اساس استیت هماهنگ‌شده */}
         <button 
           className={`${styles.favoriteBtn} ${isFavorite ? styles.active : ''}`} 
@@ -151,6 +152,5 @@ export default function BookBox({ id, bookname, author, category, favorite ,cove
         </button>
       </div>
     </div>
-    </Link>
   );
 }
