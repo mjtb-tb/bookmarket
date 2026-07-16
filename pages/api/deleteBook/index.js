@@ -8,7 +8,7 @@ export default async function deleteBook(req,res){
     
     try{
         const response = await bookmodel.findOneAndDelete({_id:bookId})
-        await usermodel.findOnAndUpdate(
+        await usermodel.findOneAndUpdate(
             {_id:userId},
             { 
                 $set: { 
