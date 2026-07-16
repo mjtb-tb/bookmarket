@@ -1,5 +1,5 @@
 import bookmodel from "@/models/book";
-import usermodel from "@/models/category";
+import usermodel from "@/models/user";
 import connectionDb from "@/functions/conecttionToDb";
 
 export default async function deleteBook(req,res){
